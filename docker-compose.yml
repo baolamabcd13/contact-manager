@@ -1,0 +1,17 @@
+services:
+  postgres:
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 582003
+      POSTGRES_DB: contactdb
+    ports:
+      - "5432:5432"
+
+  app:
+    build: D:\WorkSpace\contact-manager
+    depends_on:
+      - postgres
+    ports:
+      - "8080:8080"
